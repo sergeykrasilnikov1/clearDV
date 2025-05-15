@@ -1,0 +1,464 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЧИСТ|DV - Профессиональная уборка</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  {% if messages %}
+  <div class="messages">
+    {% for message in messages %}
+    <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+      {{ message }}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <header class="main-header">
+    <div class="header-content">
+      <div class="header-left">
+        <div class="logo-container">
+          <svg class="logo" width="136" height="26" viewBox="0 0 136 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- SVG paths from original design -->
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M39.2864 6.39972C39.9901 6.39972 40.7013 6.46628 41.4196 6.59944C42.138 6.73283 42.7098 6.92512 43.1349 7.17673C43.267 7.23606 43.3513 7.29904 43.3879 7.3656C43.4246 7.4322 43.4503 7.54685 43.4648 7.70979L43.7067 10.1968C43.7067 10.2412 43.67 10.267 43.5969 10.2744C43.5236 10.2818 43.4796 10.2633 43.4648 10.2189C43.1423 9.07901 42.5448 8.239 41.6725 7.6987C40.8001 7.15823 39.719 6.88811 38.4286 6.88811C37.3144 6.88811 36.3394 7.13611 35.5037 7.63192C34.668 8.12797 34.0229 8.82734 33.5685 9.73033C33.1139 10.6335 32.8868 11.677 32.8868 12.8614C32.8868 14.238 33.1689 15.5111 33.7335 16.6806C34.2979 17.8501 35.0603 18.7753 36.0205 19.4562C36.9809 20.1373 38.0182 20.4776 39.1324 20.4776C40.1881 20.4776 41.1043 20.1854 41.8814 19.6006C42.6584 19.0159 43.2522 18.1166 43.6628 16.9026C43.6628 16.8582 43.6921 16.8361 43.7507 16.8361C43.7947 16.8361 43.835 16.8435 43.8716 16.8582C43.9083 16.8731 43.9266 16.8952 43.9266 16.9248L43.6188 19.434C43.5895 19.6117 43.5565 19.7264 43.5198 19.7783C43.4831 19.8299 43.3989 19.8854 43.267 19.9448C41.9474 20.5072 40.5547 20.7886 39.0884 20.7886C37.3292 20.7886 35.8593 20.4296 34.6792 19.7116C33.4988 18.9936 32.6302 18.0795 32.073 16.9692C31.516 15.8591 31.2373 14.6896 31.2373 13.4608C31.2373 12.099 31.6112 10.8777 32.3589 9.79707C33.1067 8.7163 34.0962 7.87997 35.3278 7.28778C36.5594 6.69582 37.879 6.39972 39.2864 6.39972Z" fill="#0060DF"/>
+            <!-- Include all other SVG paths here -->
+          </svg>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="#" class="nav-link nav-link-active">О компании</a></li>
+          <li><a href="#" class="nav-link">Услуги</a></li>
+          <li><a href="#" class="nav-link">Цены</a></li>
+          <li><a href="#" class="nav-link">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header-right">
+        <div class="contact-info">
+          <a href="tel:+79121244221" class="phone-number">+7 (912) 124 42-21</a>
+          <div class="social-icons">
+            <!-- Social icons SVGs from original design -->
+            <!-- Instagram -->
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Include Instagram SVG path -->
+            </svg>
+            <!-- Telegram -->
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Include Telegram SVG path -->
+            </svg>
+            <!-- VK -->
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Include VK SVG path -->
+            </svg>
+          </div>
+        </div>
+        <button class="menu-button" aria-label="Toggle menu">
+          <i class="ti ti-menu-2"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-text">
+          {% if sections.hero %}
+          <h1 class="hero-title">
+            {{ sections.hero.title }}
+            <span class="highlight">ЧИСТ|</span>
+          </h1>
+          <p class="hero-description">
+            {{ sections.hero.description }}
+          </p>
+          {% endif %}
+
+          <div class="ratings-container">
+            <div class="rating-card">
+              <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8401df25cf1522bf6575d6a960e97b9a4aa883d0" alt="Rating platform" class="rating-logo">
+              <div class="rating-info">
+                <span class="rating-score">4.9</span>
+                <svg class="star-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Star SVG path -->
+                </svg>
+              </div>
+            </div>
+            <div class="rating-divider"></div>
+            <!-- Repeat for Yandex -->
+            <!-- Repeat for 2GIS -->
+          </div>
+
+          <div class="cta-container">
+            <button class="cta-button">
+              Заказать уборку
+              <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Arrow SVG path -->
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-container">
+        {% if active_videos %}
+        <video class="hero-image" autoplay muted loop playsinline id="hero-video">
+            {% for video in active_videos %}
+            <source src="{{ video.video_file.url }}" type="video/mp4" data-title="{{ video.title }}">
+            {% endfor %}
+            Your browser does not support the video tag.
+        </video>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const video = document.getElementById('hero-video');
+                const sources = video.getElementsByTagName('source');
+                let currentSource = 0;
+
+                function playNextVideo() {
+                    currentSource = (currentSource + 1) % sources.length;
+                    video.src = sources[currentSource].src;
+                    video.load();
+                    video.play().catch(function(error) {
+                        console.log("Error playing video:", error);
+                    });
+                }
+
+                video.addEventListener('ended', playNextVideo);
+                
+                // Убираем атрибут loop, так как мы сами управляем переключением
+                video.removeAttribute('loop');
+            });
+        </script>
+        {% else %}
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/35a63b95c7241a2fdb3094cb23468404f140045f" alt="Cleaning service" class="hero-image">
+        {% endif %}
+        <div class="stats-container">
+          <article class="stat-card">
+            <span class="stat-label">Успех гарантирован</span>
+            <div class="stat-content">
+              <div class="stat-number">+50<span>чел</span></div>
+              <span class="stat-description">в команде</span>
+            </div>
+          </article>
+            <article class="stat-card">
+            <span class="stat-label">Успех гарантирован</span>
+            <div class="stat-content">
+              <div class="stat-number">+50<span>чел</span></div>
+              <span class="stat-description">в команде</span>
+            </div>
+          </article>
+            <article class="stat-card">
+            <span class="stat-label">Успех гарантирован</span>
+            <div class="stat-content">
+              <div class="stat-number">+50<span>чел</span></div>
+              <span class="stat-description">в команде</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+<main class="dark-hero-section">
+  <div class="hero-container">
+    <div class="dark-hero-content">
+      <div class="gradient-overlay-left"></div>
+      <div class="gradient-overlay-right"></div>
+      <div class="gradient-blue-left"></div>
+      <div class="gradient-blue-right"></div>
+      {% if sections.clients %}
+      <h1 class="dark-hero-title">{{ sections.clients.title }}</h1>
+      <p class="dark-hero-description">
+        {{ sections.clients.description|safe }}
+      </p>
+      {% endif %}
+      <button class="dark-cta-button">ЗАКАЗАТЬ УБОРКУ</button>
+      <div class="social-links">
+        <a href="#" class="social-link social-telegram">
+          <svg width="119" height="70" viewBox="0 0 119 70" fill="none" xmlns="http://www.w3.org/2000/svg" class="social-icon telegram">
+            <rect y="22.6809" width="111" height="48" rx="24" transform="rotate(-11.6168 0 22.6809)" fill="url(#paint0_linear_71_258)" fill-opacity="0.7"/>
+            <path d="M41.3581 55.0151C50.0137 53.2358 55.5879 44.7766 53.8085 36.121C52.0292 27.4655 43.57 21.8912 34.9144 23.6706C26.2589 25.45 20.6847 33.9092 22.464 42.5647C24.2434 51.2203 32.7026 56.7945 41.3581 55.0151Z" fill="url(#paint1_linear_71_258)"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M29.5243 40.9408C33.6839 38.011 36.4607 36.0724 37.8547 35.125C41.8349 32.42 42.6746 31.9196 43.2619 31.788C43.3911 31.7591 43.6876 31.7316 43.9067 31.8454C44.0917 31.9415 44.171 32.1063 44.217 32.224C44.2629 32.3417 44.3461 32.6142 44.37 32.8355C44.6436 35.3622 44.8594 41.5858 44.9108 44.4681C44.9325 45.6877 44.5809 46.1704 44.17 46.2951C43.2771 46.5659 42.4452 46.0228 41.4449 45.6262C39.8796 45.0055 38.9847 44.6029 37.4644 43.9958C35.7074 43.2942 36.5953 42.5276 37.2888 41.4304C37.4703 41.1433 40.7305 36.6715 40.7401 36.3247C40.7413 36.2813 40.7186 36.1252 40.6102 36.0626C40.5018 36 40.3723 36.0556 40.2793 36.0978C40.1474 36.1577 38.2432 38.0671 34.5669 41.8262C34.0297 42.3843 33.5062 42.71 32.9963 42.8034C32.4343 42.9064 31.2953 42.8233 30.4416 42.7277C29.3946 42.6104 28.5798 42.6021 28.5364 42.0463C28.5137 41.7568 28.843 41.3883 29.5243 40.9408Z" fill="white"/>
+            <text transform="translate(59.9331 26.1843) rotate(-11.6168)" fill="#2A2A2A" style="white-space: pre" font-family="TT Firs Neue" font-size="24" letter-spacing="0em"><tspan x="0" y="16.8">TG</tspan></text>
+            <defs>
+              <linearGradient id="paint0_linear_71_258" x1="41.0511" y1="24.0447" x2="85.5206" y2="91.8638" gradientUnits="userSpaceOnUse">
+                <stop stop-color="white"/>
+                <stop offset="0.60094" stop-color="#A2CDE1"/>
+                <stop offset="1" stop-color="#29AAED"/>
+              </linearGradient>
+              <linearGradient id="paint1_linear_71_258" x1="1586.47" y1="-295.291" x2="2226.06" y2="2815.91" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#2AABEE"/>
+                <stop offset="1" stop-color="#229ED9"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </a>
+
+        <a href="#" class="social-link social-instagram">
+          <!-- Instagram SVG icon -->
+          <svg width="123" height="69" viewBox="0 0 123 69" fill="none" xmlns="http://www.w3.org/2000/svg" class="social-icon instagram">
+            <rect x="8.64258" width="116" height="48" rx="24" transform="rotate(10.3728 8.64258 0)" fill="url(#paint0_linear_71_257)" fill-opacity="0.7"/>
+            <!-- Rest of Instagram SVG content -->
+          </svg>
+        </a>
+
+        <a href="#" class="social-link social-vk">
+          <!-- VK SVG icon -->
+          <svg width="103" height="54" viewBox="0 0 103 54" fill="none" xmlns="http://www.w3.org/2000/svg" class="social-icon vk">
+            <rect y="5.77356" width="100" height="48" rx="24" transform="rotate(-3.30984 0 5.77356)" fill="url(#paint0_linear_71_259)"/>
+            <!-- Rest of VK SVG content -->
+          </svg>
+        </a>
+      </div>
+
+      <div class="client-logos">
+        <div class="logo-grid">
+          {% for logo in company_logos %}
+          <div class="logo-item">
+            <img src="{{ logo.logo.url }}" alt="{{ logo.name }}" class="logo-image">
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<section class="services-section">
+  <div class="services-container">
+    {% if sections.services %}
+    <h2 class="services-title">{{ sections.services.title }}</h2>
+    {% if sections.services.subtitle %}
+    <p class="services-subtitle">{{ sections.services.subtitle }}</p>
+    {% endif %}
+    {% endif %}
+    <div class="services-grid">
+      {% for service in services %}
+      <article class="service-card">
+        <div class="service-image-container">
+          <img src="{{ service.photo.url }}" alt="{{ service.name }}" class="service-image">
+        </div>
+        <div class="service-content">
+          <h3 class="service-title">{{ service.name }}</h3>
+          <p class="service-description">{{ service.description }}</p>
+          <div class="service-details">
+            <div class="service-detail">
+              <span class="detail-label">Время:</span>
+              <span class="detail-value">{{ service.duration }}</span>
+            </div>
+            <div class="service-detail">
+              <span class="detail-label">Площадь:</span>
+              <span class="detail-value">{{ service.area }}</span>
+            </div>
+            <div class="service-detail">
+              <span class="detail-label">Цена:</span>
+              <span class="detail-value">{{ service.price }} ₽</span>
+            </div>
+          </div>
+          <button class="service-button" data-service="{{ service.id }}">
+            Заказать услугу
+          </button>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="cta">
+  <div class="cta-container">
+    <article class="content-column">
+      <div class="content-wrapper">
+        <div class="header-content">
+          {% if sections.contact %}
+          <h1 class="main-heading">{{ sections.contact.title }}</h1>
+          <p class="subheading">{{ sections.contact.description }}</p>
+          {% endif %}
+        </div>
+        <form class="contact-form" method="POST" action="{% url 'submit_application' %}">
+          {% csrf_token %}
+          <div class="form-row">
+            <input type="text" name="name" class="form-input" placeholder="Ваше имя" required>
+            <input type="text" name="area" class="form-input" placeholder="Площадь помещения" required>
+            <select name="service" class="form-select" required>
+              <option value="">Выберите услугу</option>
+              {% for service in services %}
+              <option value="{{ service.id }}">{{ service.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-row">
+            <input type="tel" name="phone" class="form-input phone-input" placeholder="+7 (___) ___-__-__" required>
+            <input type="text" name="question" class="form-input" placeholder="Уточните свой вопрос">
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="privacy" name="privacy" required>
+            <label for="privacy" class="privacy-policy">
+              <span class="text-gray">С </span>
+              <span class="text-gray">правилами</span>
+              <span class="text-blue">политики конфиденциальности</span>
+              <span class="text-gray">ознакомлен</span>
+            </label>
+          </div>
+          <div class="form-footer">
+            <button type="submit" class="submit-button">Оставить заявку</button>
+            <p class="total-price">Итого: <span id="total-price">0</span>₽</p>
+          </div>
+        </form>
+      </div>
+    </article>
+    <article class="image-column first">
+      <div class="image-wrapper">
+        <img src="https://cdn.builder.io/api/v1/image/assets/b7d0e235201d4631a6adfa9f695f589c/5da3c26561a0bae0b067085835da43d56c4bfd3a?placeholderIfAbsent=true" alt="Service image 1" class="gallery-image vertical">
+        <img src="https://cdn.builder.io/api/v1/image/assets/b7d0e235201d4631a6adfa9f695f589c/d023a6e44121dad2de58dab3e4ebe58ec40aacb4?placeholderIfAbsent=true" alt="Service image 2" class="gallery-image horizontal">
+      </div>
+    </article>
+    <article class="image-column second">
+      <div class="image-wrapper">
+        <img src="https://cdn.builder.io/api/v1/image/assets/b7d0e235201d4631a6adfa9f695f589c/e58e7f724cab68c084c0782c7da82ab98266b493?placeholderIfAbsent=true" alt="Service image 3" class="gallery-image horizontal">
+        <img src="https://cdn.builder.io/api/v1/image/assets/b7d0e235201d4631a6adfa9f695f589c/0929b2ee0e11dffbd6a74f81a733140cd229e352?placeholderIfAbsent=true" alt="Service image 4" class="gallery-image vertical">
+      </div>
+    </article>
+  </div>
+</section>
+<section class="reviews-section">
+  <header class="reviews-header">
+    <div class="header-content">
+      {% if sections.reviews %}
+      <h1 class="main-title">{{ sections.reviews.title }}</h1>
+      <p class="subtitle">{{ sections.reviews.description|safe }}</p>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="reviews-slider">
+    <div class="reviews-slider-container">
+      {% for review in reviews %}
+      <article class="review-card {% if forloop.first %}active{% endif %}" data-review-index="{{ forloop.counter }}">
+        <div class="review-header">
+          <figure class="reviewer-info">
+            {% if review.photo %}
+            <img src="{{ review.photo.url }}" alt="{{ review.name }}" class="reviewer-avatar">
+            {% else %}
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFOEU4RTgiIHJ4PSI4Ii8+PHBhdGggZD0iTTMyIDMyQzM3LjUyMjggMzIgNDIgMjcuNTIyOCA0MiAyMkM0MiAxNi40NzcyIDM3LjUyMjggMTIgMzIgMTJDMjYuNDc3MiAxMiAyMiAxNi40NzcyIDIyIDIyQzIyIDI3LjUyMjggMjYuNDc3MiAzMiAzMiAzMlpNMzIgMzZDMjQuMjY4IDM2IDE4IDQyLjI2OCAxOCA1MEMxOCA1MS4xMDQ2IDE4Ljg5NTQgNTIgMjAgNTJINDRDNDUuMTA0NiA1MiA0NiA1MS4xMDQ2IDQ2IDUwQzQ2IDQyLjI2OCAzOS43MzIgMzYgMzIgMzZaIiBmaWxsPSIjQTBBMEEwIi8+PC9zdmc+" alt="{{ review.name }}" class="reviewer-avatar">
+            {% endif %}
+            <figcaption class="reviewer-details">
+              <div class="rating-container">
+                <span class="rating-score">{{ review.rating }}.0</span>
+                <div class="star-rating">
+                  {% for i in "12345"|make_list %}
+                  <span class="star"></span>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="reviewer-name-service">
+                <h3 class="reviewer-name">{{ review.name }}</h3>
+                <p class="service-type">{{ review.service.name|default:"Общий отзыв" }}</p>
+              </div>
+            </figcaption>
+          </figure>
+          <img src="https://cdn.builder.io/api/v1/image/assets/b7d0e235201d4631a6adfa9f695f589c/2f592db927c2d491ebf4157f42a4ee164b8ef214?placeholderIfAbsent=true" alt="Platform Logo" class="platform-logo">
+        </div>
+        <p class="review-text">{{ review.text }}</p>
+        <a href="{{ review.link }}" class="platform-link" target="_blank">
+          <img src="https://cdn.builder.io/api/v1/image/assets/b7d0e235201d4631a6adfa9f695f589c/2d8e6f53f97441135c3f36d7b7938396f79f15cb?placeholderIfAbsent=true" alt="2GIS Logo" class="platform-link-logo">
+          <span class="platform-link-text">Читать на 2GIS</span>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <footer class="reviews-footer">
+    <div class="platform-ratings">
+      <div class="rating-badge">
+        <img src="https://cdn.builder.io/api/v1/image/assets/b7d0e235201d4631a6adfa9f695f589c/11c6483687455b01f0ca6db193f217a9ddf1f45d?placeholderIfAbsent=true" alt="VL Logo" class="platform-badge-logo">
+        <div class="badge-rating">
+          <span class="rating-value">{{ vl_rating|floatformat:1 }}</span>
+          <div class="star-rating">
+            <span class="star"></span>
+          </div>
+        </div>
+      </div>
+      <div class="rating-separator"></div>
+      <div class="rating-badge">
+        <img src="https://cdn.builder.io/api/v1/image/assets/b7d0e235201d4631a6adfa9f695f589c/40024e0e70b191b8e9e379d13146197b502fd4c9?placeholderIfAbsent=true" alt="Yandex Logo" class="platform-badge-logo">
+        <div class="badge-rating">
+          <span class="rating-value">4.9</span>
+          <div class="star-rating">
+            <span class="star"></span>
+          </div>
+        </div>
+      </div>
+      <div class="rating-separator"></div>
+      <div class="rating-badge">
+        <img src="https://cdn.builder.io/api/v1/image/assets/b7d0e235201d4631a6adfa9f695f589c/a450a7f9111fe9ffb384939a67124311022ad42b?placeholderIfAbsent=true" alt="2GIS Logo" class="platform-badge-logo">
+        <div class="badge-rating">
+          <span class="rating-value">{{ gis_rating|floatformat:1 }}</span>
+          <div class="star-rating">
+            <span class="star"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider-controls">
+      <button class="nav-button prev">
+        <img src="https://cdn.builder.io/api/v1/image/assets/b7d0e235201d4631a6adfa9f695f589c/9992b9d33675ce8796240c5acbcc0de794c4a51d?placeholderIfAbsent=true" alt="Previous" class="nav-icon">
+      </button>
+      <div class="slider-counter">
+        <span class="current-slide">01</span>
+        <span class="total-slides">/{% with total=reviews|length %}{% if total < 10 %}0{% endif %}{{ total }}{% endwith %}</span>
+      </div>
+      <button class="nav-button next">
+        <img src="https://cdn.builder.io/api/v1/image/assets/b7d0e235201d4631a6adfa9f695f589c/6ae5a903d1293a334bc4b3579e580ecb4819c6a1?placeholderIfAbsent=true" alt="Next" class="nav-icon">
+      </button>
+    </div>
+  </footer>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sliderContainer = document.querySelector('.reviews-slider-container');
+  const reviewCards = document.querySelectorAll('.review-card');
+  const totalReviews = reviewCards.length;
+  const currentSlideElement = document.querySelector('.current-slide');
+  const prevButton = document.querySelector('.nav-button.prev');
+  const nextButton = document.querySelector('.nav-button.next');
+  let currentIndex = 0;
+
+  function updateSlider(newIndex) {
+    // Update active state
+    reviewCards.forEach(card => card.classList.remove('active'));
+    reviewCards[newIndex].classList.add('active');
+
+    // Calculate the translation distance
+    const cardWidth = reviewCards[0].offsetWidth;
+    const gapWidth = 24; // This should match the gap in CSS
+    const translateX = -(newIndex * (cardWidth + gapWidth));
+    
+    // Apply the translation
+    sliderContainer.style.transform = `translateX(${translateX}px)`;
+
+    // Update counter
+    currentSlideElement.textContent = (newIndex + 1).toString().padStart(2, '0');
+  }
+
+  prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalReviews) % totalReviews;
+    updateSlider(currentIndex);
+  });
+
+  nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalReviews;
+    updateSlider(currentIndex);
+  });
+});
+</script>
+
+</body>
+</html>
